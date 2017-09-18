@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>purchase</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Your purchase has been submitted</h1>
+            {% if request.session.last_transaction %}
+            <h3>Total: ${{ request.session.last_transaction }}</h3>
+            {% else %}
+            <h3>Continue shopping</h3>
+            {% endif %}
+            <p>You have ordered {{ request.session.total_items }} item(s) and spent ${{ request.session.total_charged }} with Amadon.com!</p>
+            <a href="/">Return</a>
+        </div>
+    </body>
+
+</html>
